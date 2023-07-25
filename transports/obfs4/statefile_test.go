@@ -33,11 +33,10 @@ import (
 	"path"
 	"testing"
 
-	pt "git.torproject.org/pluggable-transports/goptlib.git"
 	"gitlab.com/yawning/obfs4.git/common/drbg"
 	"gitlab.com/yawning/obfs4.git/common/ntor"
+	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
-
 
 func TestObfs4StateDir(t *testing.T) {
 
@@ -59,13 +58,13 @@ func TestObfs4StateDir(t *testing.T) {
 	args.Add("drbg-seed", seed.Hex())
 
 	server, err := serverStateFromArgs("", &args)
-	if err != nil || server == nil{
+	if err != nil || server == nil {
 		t.Fatalf("serverStateFromArgs failed: %s", err)
 	}
 
 	if _, err := os.Stat("./obfs4_state.json"); !errors.Is(err, os.ErrNotExist) {
 		t.Fatalf("file that shouldn't exist either exists or other err occurred: %s", err)
-	} else if  _, err := os.Stat("./obfs4_bridgeline.txt"); !errors.Is(err, os.ErrNotExist) {
+	} else if _, err := os.Stat("./obfs4_bridgeline.txt"); !errors.Is(err, os.ErrNotExist) {
 		t.Fatalf("file that shouldn't exist either exists or other err occurred: %s", err)
 	}
 
@@ -75,13 +74,13 @@ func TestObfs4StateDir(t *testing.T) {
 	}
 
 	server, err = serverStateFromArgs(stateDir, &args)
-	if err != nil || server == nil{
+	if err != nil || server == nil {
 		t.Fatalf("serverStateFromArgs failed: %s", err)
 	}
 
-	if _, err := os.Stat(path.Join(stateDir,  "./obfs4_state.json")); err != nil {
+	if _, err := os.Stat(path.Join(stateDir, "./obfs4_state.json")); err != nil {
 		t.Fatalf("file that should exist either doesn't exists or other err occurred: %s", err)
-	} else if  _, err := os.Stat(path.Join(stateDir, "./obfs4_bridgeline.txt"));  err != nil {
+	} else if _, err := os.Stat(path.Join(stateDir, "./obfs4_bridgeline.txt")); err != nil {
 		t.Fatalf("file that should exist either doesn't exists or other err occurred: %s", err)
 	}
 }

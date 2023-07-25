@@ -3,9 +3,9 @@ module gitlab.com/yawning/obfs4.git
 go 1.20
 
 require (
-	git.torproject.org/pluggable-transports/goptlib.git v1.3.0
-	github.com/agl/ed25519 v0.0.0-20170116200512-5312a6153412
 	github.com/dchest/siphash v1.2.3
+	github.com/refraction-networking/conjure v0.4.5
+	gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib v1.4.0
 	golang.org/x/crypto v0.11.0
 	golang.org/x/net v0.12.0
 )

@@ -30,11 +30,11 @@
 // 1929.
 //
 // Notes:
-//  * GSSAPI authentication, is NOT supported.
-//  * Only the CONNECT command is supported.
-//  * The authentication provided by the client is always accepted as it is
-//    used as a channel to pass information rather than for authentication for
-//    pluggable transports.
+//   - GSSAPI authentication, is NOT supported.
+//   - Only the CONNECT command is supported.
+//   - The authentication provided by the client is always accepted as it is
+//     used as a channel to pass information rather than for authentication for
+//     pluggable transports.
 package socks5 // import "gitlab.com/yawning/obfs4.git/common/socks5"
 
 import (
@@ -46,7 +46,7 @@ import (
 	"syscall"
 	"time"
 
-	"git.torproject.org/pluggable-transports/goptlib.git"
+	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 
 const (
