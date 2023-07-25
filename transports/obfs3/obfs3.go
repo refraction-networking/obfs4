@@ -40,10 +40,10 @@ import (
 	"net"
 	"time"
 
-	"git.torproject.org/pluggable-transports/goptlib.git"
 	"gitlab.com/yawning/obfs4.git/common/csrand"
 	"gitlab.com/yawning/obfs4.git/common/uniformdh"
 	"gitlab.com/yawning/obfs4.git/transports/base"
+	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 
 const (

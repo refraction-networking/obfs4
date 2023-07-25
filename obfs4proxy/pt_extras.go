@@ -35,7 +35,7 @@ import (
 	"os"
 	"strconv"
 
-	"git.torproject.org/pluggable-transports/goptlib.git"
+	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 
 // This file contains things that probably should be in goptlib but are not

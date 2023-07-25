@@ -32,7 +32,7 @@ package base // import "gitlab.com/yawning/obfs4.git/transports/base"
 import (
 	"net"
 
-	"git.torproject.org/pluggable-transports/goptlib.git"
+	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 
 type DialFunc func(string, string) (net.Conn, error)
