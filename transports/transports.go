@@ -34,7 +34,6 @@ import (
 	"sync"
 
 	"gitlab.com/yawning/obfs4.git/transports/base"
-	"gitlab.com/yawning/obfs4.git/transports/meeklite"
 	"gitlab.com/yawning/obfs4.git/transports/obfs2"
 	"gitlab.com/yawning/obfs4.git/transports/obfs3"
 	"gitlab.com/yawning/obfs4.git/transports/obfs4"
@@ -85,7 +84,6 @@ func Get(name string) base.Transport {
 // Init initializes all of the integrated transports.
 func Init() error {
 	for _, v := range []base.Transport{
-		new(meeklite.Transport),
 		new(obfs2.Transport),
 		new(obfs3.Transport),
 		new(obfs4.Transport),
