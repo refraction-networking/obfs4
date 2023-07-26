@@ -42,10 +42,10 @@ import (
 	"net"
 	"time"
 
-	"gitlab.com/yawning/obfs4.git/common/csrand"
-	"gitlab.com/yawning/obfs4.git/common/drbg"
-	"gitlab.com/yawning/obfs4.git/common/probdist"
-	"gitlab.com/yawning/obfs4.git/common/uniformdh"
+	"github.com/refraction-networking/obfs4/common/csrand"
+	"github.com/refraction-networking/obfs4/common/drbg"
+	"github.com/refraction-networking/obfs4/common/probdist"
+	"github.com/refraction-networking/obfs4/common/uniformdh"
 	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 

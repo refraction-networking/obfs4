@@ -31,7 +31,7 @@ import (
 	"fmt"
 	"testing"
 
-	"gitlab.com/yawning/obfs4.git/common/drbg"
+	"github.com/refraction-networking/obfs4/common/drbg"
 )
 
 const debug = false

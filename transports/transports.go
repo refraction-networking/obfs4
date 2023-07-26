@@ -27,17 +27,17 @@
 
 // Package transports provides a interface to query supported pluggable
 // transports.
-package transports // import "gitlab.com/yawning/obfs4.git/transports"
+package transports // import "github.com/refraction-networking/obfs4/transports"
 
 import (
 	"fmt"
 	"sync"
 
-	"gitlab.com/yawning/obfs4.git/transports/base"
-	"gitlab.com/yawning/obfs4.git/transports/obfs2"
-	"gitlab.com/yawning/obfs4.git/transports/obfs3"
-	"gitlab.com/yawning/obfs4.git/transports/obfs4"
-	"gitlab.com/yawning/obfs4.git/transports/scramblesuit"
+	"github.com/refraction-networking/obfs4/transports/base"
+	"github.com/refraction-networking/obfs4/transports/obfs2"
+	"github.com/refraction-networking/obfs4/transports/obfs3"
+	"github.com/refraction-networking/obfs4/transports/obfs4"
+	"github.com/refraction-networking/obfs4/transports/scramblesuit"
 )
 
 var transportMapLock sync.Mutex

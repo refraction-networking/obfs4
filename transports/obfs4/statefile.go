@@ -37,9 +37,9 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/yawning/obfs4.git/common/csrand"
-	"gitlab.com/yawning/obfs4.git/common/drbg"
-	"gitlab.com/yawning/obfs4.git/common/ntor"
+	"github.com/refraction-networking/obfs4/common/csrand"
+	"github.com/refraction-networking/obfs4/common/drbg"
+	"github.com/refraction-networking/obfs4/common/ntor"
 	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 

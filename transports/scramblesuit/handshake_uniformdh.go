@@ -36,8 +36,8 @@ import (
 	"strconv"
 	"time"
 
-	"gitlab.com/yawning/obfs4.git/common/csrand"
-	"gitlab.com/yawning/obfs4.git/common/uniformdh"
+	"github.com/refraction-networking/obfs4/common/csrand"
+	"github.com/refraction-networking/obfs4/common/uniformdh"
 )
 
 const (

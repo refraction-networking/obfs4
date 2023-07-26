@@ -27,7 +27,7 @@
 
 // Package obfs3 provides an implementation of the Tor Project's obfs3
 // obfuscation protocol.
-package obfs3 // import "gitlab.com/yawning/obfs4.git/transports/obfs3"
+package obfs3 // import "github.com/refraction-networking/obfs4/transports/obfs3"
 
 import (
 	"bytes"
@@ -40,9 +40,9 @@ import (
 	"net"
 	"time"
 
-	"gitlab.com/yawning/obfs4.git/common/csrand"
-	"gitlab.com/yawning/obfs4.git/common/uniformdh"
-	"gitlab.com/yawning/obfs4.git/transports/base"
+	"github.com/refraction-networking/obfs4/common/csrand"
+	"github.com/refraction-networking/obfs4/common/uniformdh"
+	"github.com/refraction-networking/obfs4/transports/base"
 	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 )
 

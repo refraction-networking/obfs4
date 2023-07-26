@@ -32,7 +32,7 @@
 //
 // Before using this package, it is strongly recommended that the specification
 // is read and understood.
-package ntor // import "gitlab.com/yawning/obfs4.git/common/ntor"
+package ntor // import "github.com/refraction-networking/obfs4/common/ntor"
 
 import (
 	"bytes"
@@ -43,8 +43,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/refraction-networking/conjure/pkg/ed25519/extra25519"
-	"gitlab.com/yawning/obfs4.git/common/csrand"
+	"github.com/refraction-networking/ed25519/extra25519"
+	"github.com/refraction-networking/obfs4/common/csrand"
 	"golang.org/x/crypto/curve25519"
 	"golang.org/x/crypto/hkdf"
 )

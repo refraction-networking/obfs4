@@ -41,10 +41,10 @@ import (
 	"sync"
 	"syscall"
 
-	"gitlab.com/yawning/obfs4.git/common/log"
-	"gitlab.com/yawning/obfs4.git/common/socks5"
-	"gitlab.com/yawning/obfs4.git/transports"
-	"gitlab.com/yawning/obfs4.git/transports/base"
+	"github.com/refraction-networking/obfs4/common/log"
+	"github.com/refraction-networking/obfs4/common/socks5"
+	"github.com/refraction-networking/obfs4/transports"
+	"github.com/refraction-networking/obfs4/transports/base"
 	pt "gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/goptlib"
 	"golang.org/x/net/proxy"
 )
