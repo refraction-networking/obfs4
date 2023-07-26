@@ -111,7 +111,7 @@ func clientAcceptLoop(f base.ClientFactory, ln net.Listener, proxyURI *url.URL) 
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			if e, ok := err.(net.Error); ok && !e.Temporary() {
+			if e, ok := err.(net.Error); ok && !e.Timeout() {
 				return err
 			}
 			continue
@@ -226,7 +226,7 @@ func serverAcceptLoop(f base.ServerFactory, ln net.Listener, info *pt.ServerInfo
 	for {
 		conn, err := ln.Accept()
 		if err != nil {
-			if e, ok := err.(net.Error); ok && !e.Temporary() {
+			if e, ok := err.(net.Error); (ok && !e.Timeout()) || !ok {
 				return err
 			}
 			continue

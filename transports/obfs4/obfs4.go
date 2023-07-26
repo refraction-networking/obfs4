@@ -491,7 +491,7 @@ func (conn *obfs4Conn) Write(b []byte) (n int, err error) {
 		if err != nil {
 			return 0, err
 		} else if rdLen == 0 {
-			panic(fmt.Sprintf("BUG: Write(), chopping length was 0"))
+			panic("BUG: Write(), chopping length was 0")
 		}
 		n += rdLen
 
@@ -549,7 +549,7 @@ func (conn *obfs4Conn) Write(b []byte) (n int, err error) {
 			if err != nil {
 				return 0, err
 			} else if iatWrLen == 0 {
-				panic(fmt.Sprintf("BUG: Write(), iat length was 0"))
+				panic("BUG: Write(), iat length was 0")
 			}
 
 			// Calculate the delay.  The delay resolution is 100 usec, leading

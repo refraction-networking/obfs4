@@ -1,6 +1,6 @@
 ## obfs4 - The obfourscator
 
-![Go Test/Build](https://github.com/refraction-networking/obfs4/actions/workflows/golang.yml/badge.svg)
+[![Go Test/Build](https://github.com/refraction-networking/obfs4/actions/workflows/golang.yml/badge.svg)](https://github.com/refraction-networking/obfs4/actions/workflows/golang.yml)
 
 Fork of [yawning/obfs4](gitlab.com/yawning/obfs4.git) for refraction specific use.
 

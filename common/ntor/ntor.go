@@ -38,7 +38,6 @@ import (
 	"bytes"
 	"crypto/hmac"
 	"crypto/sha256"
-	"crypto/subtle"
 	"encoding/hex"
 	"fmt"
 	"io"
@@ -320,15 +319,20 @@ func ServerHandshake(clientPublic *PublicKey, serverKeypair *Keypair, idKeypair 
 	var secretInput bytes.Buffer
 
 	// Server side uses EXP(X,y) | EXP(X,b)
-	var exp [SharedSecretLength]byte
-	curve25519.ScalarMult(&exp, serverKeypair.private.Bytes(),
-		clientPublic.Bytes())
-	notOk |= constantTimeIsZero(exp[:])
+	exp, err := curve25519.X25519(serverKeypair.private.Bytes()[:], clientPublic.Bytes()[:])
+	if err != nil {
+		notOk |= 1
+	} else {
+		notOk |= 0
+	}
 	secretInput.Write(exp[:])
 
-	curve25519.ScalarMult(&exp, idKeypair.private.Bytes(),
-		clientPublic.Bytes())
-	notOk |= constantTimeIsZero(exp[:])
+	exp, err = curve25519.X25519(idKeypair.private.Bytes()[:], clientPublic.Bytes()[:])
+	if err != nil {
+		notOk |= 1
+	} else {
+		notOk |= 0
+	}
 	secretInput.Write(exp[:])
 
 	keySeed, auth = ntorCommon(secretInput, id, idKeypair.public,
@@ -344,15 +348,20 @@ func ClientHandshake(clientKeypair *Keypair, serverPublic *PublicKey, idPublic *
 	var secretInput bytes.Buffer
 
 	// Client side uses EXP(Y,x) | EXP(B,x)
-	var exp [SharedSecretLength]byte
-	curve25519.ScalarMult(&exp, clientKeypair.private.Bytes(),
-		serverPublic.Bytes())
-	notOk |= constantTimeIsZero(exp[:])
+	exp, err := curve25519.X25519(clientKeypair.private.Bytes()[:], serverPublic.Bytes()[:])
+	if err != nil {
+		notOk |= 1
+	} else {
+		notOk |= 0
+	}
 	secretInput.Write(exp[:])
 
-	curve25519.ScalarMult(&exp, clientKeypair.private.Bytes(),
-		idPublic.Bytes())
-	notOk |= constantTimeIsZero(exp[:])
+	exp, err = curve25519.X25519(clientKeypair.private.Bytes()[:], idPublic.Bytes()[:])
+	if err != nil {
+		notOk |= 1
+	} else {
+		notOk |= 0
+	}
 	secretInput.Write(exp[:])
 
 	keySeed, auth = ntorCommon(secretInput, id, idPublic,
@@ -404,15 +413,6 @@ func ntorCommon(secretInput bytes.Buffer, id *NodeID, b *PublicKey, x *PublicKey
 	copy(auth[:], tmp)
 
 	return keySeed, auth
-}
-
-func constantTimeIsZero(x []byte) int {
-	var ret byte
-	for _, v := range x {
-		ret |= v
-	}
-
-	return subtle.ConstantTimeByteEq(ret, 0)
 }
 
 // Kdf extracts and expands KEY_SEED via HKDF-SHA256 and returns `okm_len` bytes
