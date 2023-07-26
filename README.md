@@ -1,4 +1,9 @@
 ## obfs4 - The obfourscator
+
+![Go Test/Build](https://github.com/refraction-networking/obfs4/actions/workflows/golang.yml/badge.svg)
+
+Fork of [yawning/obfs4](gitlab.com/yawning/obfs4.git) for refraction specific use.
+
 #### Yawning Angel (yawning at torproject dot org)
 
 ### What?
