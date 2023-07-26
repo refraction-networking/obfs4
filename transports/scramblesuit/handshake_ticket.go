@@ -34,7 +34,6 @@ import (
 	"errors"
 	"fmt"
 	"hash"
-	"io/ioutil"
 	"net"
 	"os"
 	"path"
@@ -150,7 +149,7 @@ func (s *ssTicketStore) serialize() error {
 	if err != nil {
 		return err
 	}
-	return ioutil.WriteFile(s.filePath, jsonStr, 0600)
+	return os.WriteFile(s.filePath, jsonStr, 0600)
 }
 
 func loadTicketStore(stateDir string) (*ssTicketStore, error) {
@@ -163,7 +162,7 @@ func loadTicketStore(stateDir string) (*ssTicketStore, error) {
 	s := &ssTicketStore{filePath: fPath}
 	s.store = make(map[string]*ssTicket)
 
-	f, err := ioutil.ReadFile(fPath)
+	f, err := os.ReadFile(fPath)
 	if err != nil {
 		// No ticket store is fine.
 		if os.IsNotExist(err) {

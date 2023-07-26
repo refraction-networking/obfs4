@@ -31,7 +31,7 @@ package log // import "github.com/refraction-networking/obfs4/common/log"
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net"
 	"os"
@@ -67,7 +67,7 @@ func Init(enable bool, logFilePath string, unsafe bool) error {
 		}
 		log.SetOutput(f)
 	} else {
-		log.SetOutput(ioutil.Discard)
+		log.SetOutput(io.Discard)
 	}
 	enableLogging = enable
 	return nil

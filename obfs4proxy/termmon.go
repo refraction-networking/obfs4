@@ -29,7 +29,6 @@ package main
 
 import (
 	"io"
-	"io/ioutil"
 	"os"
 	"os/signal"
 	"runtime"
@@ -73,7 +72,7 @@ func (m *termMonitor) wait(termOnNoHandlers bool) os.Signal {
 }
 
 func (m *termMonitor) termOnStdinClose() {
-	_, err := io.Copy(ioutil.Discard, os.Stdin)
+	_, err := io.Copy(io.Discard, os.Stdin)
 
 	// io.Copy() will return a nil on EOF, since reaching EOF is
 	// expected behavior.  No matter what, if this unblocks, assume
